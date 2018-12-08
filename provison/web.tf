@@ -16,7 +16,7 @@ data "aws_ami" "ubuntu-1604" {
 }
 
 data "template_file" "web" {
-  count = "1"
+  count = "${var.webservice_server_count}"
 
   template = <<EOF
 ${file("${path.module}/templates/webserver.sh")}
@@ -120,7 +120,7 @@ resource "aws_iam_instance_profile" "web" {
 }
 
 resource "aws_instance" "web" {
-  count         = "1"
+  count         = "${var.webservice_server_count}"
   ami           = "${data.aws_ami.ubuntu-1604.id}"
   instance_type = "t2.medium"
   key_name      = "${aws_key_pair.consul.key_name}"

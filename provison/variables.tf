@@ -15,7 +15,7 @@ variable "datacenter" {
 }
 
 variable "consul_version" {
-  default = "1.2.2"
+  default = "1.2.3"
 }
 
 variable "consul_server_count" {
@@ -24,4 +24,8 @@ variable "consul_server_count" {
 
 variable "retry_join_tag" {
   default = "consul"
+}
+
+variable "webservice_server_count" {
+  default = "1"
 }

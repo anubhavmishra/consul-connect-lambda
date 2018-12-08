@@ -130,9 +130,9 @@ output "consul_lb" {
   value = "${aws_alb.consul.dns_name}"
 }
 
-output "consul_server_ssh" {
-  value = "ssh -q -i ${path.module}/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no ${var.username}@${element(module.consul.server_ips, 0)} -L 8500:localhost:8500"
-}
+#output "consul_server_ssh" {
+#  value = "ssh -q -i ${path.module}/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no ${var.username}@${element(module.consul.server_ips, 0)} -L 8500:localhost:8500"
+#}
 
 output "consul_server_ips" {
   value = "${module.consul.server_ips}"
